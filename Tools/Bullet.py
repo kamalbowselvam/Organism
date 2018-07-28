@@ -3,6 +3,7 @@ import sys
 from PyQt5.QtWidgets import QApplication, QGraphicsView, QGraphicsScene, QGraphicsRectItem, QGraphicsItem
 from PyQt5.QtCore import  QRectF, QPointF, qDebug, Qt, QTimer, QObject, QUrl
 from Players.Enemy import Enemy
+from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent, QMediaPlaylist
 
 
 class Bullet(QGraphicsRectItem):
@@ -14,6 +15,11 @@ class Bullet(QGraphicsRectItem):
         self.timer = QTimer()
         self.timer.timeout.connect(lambda:  self.move())
         self.timer.start(50)
+        self.bulletSound = QMediaPlayer()
+        self.bulletSound.setMedia(QMediaContent(QUrl("qrc:/Resources/sounds/Bullet.mp3")))
+        self.bulletSound.setVolume(10)
+        self.bulletSound.play()
+
         Bullet.value +=  1
         self.bulletCouter()
 
