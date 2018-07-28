@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QGraphicsRectItem
 from PyQt5.QtCore import Qt, QUrl
 from PyQt5.QtWidgets import QGraphicsRectItem
-from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent, QMediaPlaylist
+
 
 
 from Tools.Bullet import Bullet
@@ -12,9 +12,7 @@ class Player(QGraphicsRectItem):
     def __init__(self):
         super(Player,self).__init__()
         self.setRect(0,0,50,50)
-        self.bulletSound = QMediaPlayer()
-        self.bulletSound.setMedia(QMediaContent(QUrl("qrc:/Resources/sounds/Bullet2.mp3")))
-        self.bulletSound.setVolume(10)
+
 
 
 
@@ -35,11 +33,8 @@ class Player(QGraphicsRectItem):
             if (self.pos().y() + 100 < 600):
                 self.setPos(self.x(), self.y()+10)
 
-        if (QKeyEvent.key() ==  Qt.Key_Space):
-            if(self.bulletSound.state() == QMediaPlayer.PlayingState):
 
-                print("Playing Still")
-            self.bulletSound.play()
+        if (QKeyEvent.key() ==  Qt.Key_Space):
             bullet = Bullet()
             bullet.setPos(self.x(),self.y())
             self.scene().addItem(bullet)
