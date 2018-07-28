@@ -1,6 +1,6 @@
 from PyQt5.QtCore import QTimer
 from PyQt5.QtCore import Qt, QObject, QUrl
-from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent
+from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent,QMediaPlaylist
 from PyQt5.QtWidgets import QGraphicsItem
 
 from Grounds.PlayGround import PlayGround
@@ -21,9 +21,13 @@ class Game(QObject):
         self.player = Player()
         self.addToGround(self.player)
         self.backgroundMusic = QMediaPlayer()
-        self.backgroundMusic.setMedia(QMediaContent(QUrl("qrc:/Resources/sounds/Game_Background.mp3")))
-        self.backgroundMusic.setVolume(5)
-#        self.backgroundMusic.play()
+        self.playList = QMediaPlaylist()
+        self.playList.addMedia(QMediaContent(QUrl("qrc:/Resources/sounds/Game_Background.mp3")))
+        self.playList.setPlaybackMode(QMediaPlaylist.Loop)
+
+        self.backgroundMusic.setPlaylist(self.playList)
+        self.backgroundMusic.setVolume(2)
+        self.backgroundMusic.play()
 
 
         self.changeFocus(self.player)
