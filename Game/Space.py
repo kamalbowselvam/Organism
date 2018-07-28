@@ -2,7 +2,7 @@ from PyQt5.QtCore import QTimer
 from PyQt5.QtCore import Qt, QObject, QUrl
 from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent,QMediaPlaylist
 from PyQt5.QtWidgets import QGraphicsItem
-
+from PyQt5.QtGui import QBrush, QImage
 from Grounds.PlayGround import PlayGround
 from Grounds.PlayGroundView import PlayGroundView
 from Players.Enemy import Enemy
@@ -16,6 +16,7 @@ class Game(QObject):
     def __init__(self):
         super(Game,self).__init__()
         self.scene = PlayGround()
+        self.scene.setBackgroundBrush(QBrush(QImage(":/Resources/images/BackGround.png")))
         self.view = PlayGroundView()
         self.view.setScene(self.scene)
         self.player = Player()

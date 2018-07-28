@@ -2,6 +2,10 @@
 <qresource>
     <file>Resources/sounds/Game_Background.mp3</file>
     <file>Resources/sounds/Bullet.mp3</file>
-    <file>Resources/sounds/Bullet2.mp3</file>
+    <file>Resources/images/BackGround.png</file>
+    <file>Resources/images/Bullet.png</file>
+    <file>Resources/images/Spaceship.png</file>
+    <file>Resources/images/Enemy.png</file>
+
 </qresource>
 </RCC>

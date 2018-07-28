@@ -1,16 +1,21 @@
 
 import sys
-from PyQt5.QtWidgets import QApplication, QGraphicsView, QGraphicsScene, QGraphicsRectItem, QGraphicsItem
+from PyQt5.QtWidgets import QApplication, QGraphicsView, QGraphicsScene, QGraphicsRectItem, QGraphicsItem, QGraphicsPixmapItem
 from PyQt5.QtCore import  QRectF, QPointF, qDebug, Qt, QTimer, QObject
+from PyQt5.QtGui import QPixmap
 import random
 
 
-class Enemy(QGraphicsRectItem):
+class Enemy(QGraphicsPixmapItem):
+
     value = 0
 
     def __init__(self):
         super(Enemy,self).__init__()
-        self.setRect(0,0,50,50)
+#        self.setRect(0,0,50,50)
+        self.setPixmap(QPixmap(":/Resources/images/Enemy.png"))
+        self.setScale(0.2)
+
         random_number = random.randint(0,600)
         self.setPos(random_number,0)
         self.timer = QTimer()

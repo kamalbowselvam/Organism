@@ -1,17 +1,20 @@
 from PyQt5.QtWidgets import QGraphicsRectItem
 from PyQt5.QtCore import Qt, QUrl
-from PyQt5.QtWidgets import QGraphicsRectItem
+from PyQt5.QtWidgets import QGraphicsRectItem, QGraphicsPixmapItem
+from PyQt5.QtGui import QPixmap
 
 
 
 from Tools.Bullet import Bullet
 
 
-class Player(QGraphicsRectItem):
+class Player(QGraphicsPixmapItem):
 
     def __init__(self):
         super(Player,self).__init__()
-        self.setRect(0,0,50,50)
+#        self.setRect(0,0,50,50)
+        self.setPixmap(QPixmap(":/Resources/images/Spaceship.png"))
+        self.setScale(0.2)
 
 
 
@@ -36,7 +39,7 @@ class Player(QGraphicsRectItem):
 
         if (QKeyEvent.key() ==  Qt.Key_Space):
             bullet = Bullet()
-            bullet.setPos(self.x(),self.y())
+            bullet.setPos(self.x()+12.5,self.y())
             self.scene().addItem(bullet)
 
 
