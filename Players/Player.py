@@ -1,5 +1,4 @@
-from PyQt5.QtWidgets import QGraphicsRectItem
-from PyQt5.QtCore import Qt, QUrl
+from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QGraphicsRectItem, QGraphicsPixmapItem
 from PyQt5.QtGui import QPixmap
 

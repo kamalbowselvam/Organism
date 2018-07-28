@@ -1,7 +1,6 @@
 
-import sys
-from PyQt5.QtWidgets import QApplication, QGraphicsView, QGraphicsScene, QGraphicsRectItem, QGraphicsItem, QGraphicsPixmapItem
-from PyQt5.QtCore import  QRectF, QPointF, qDebug, Qt, QTimer, QObject
+from PyQt5.QtWidgets import  QGraphicsRectItem, QGraphicsPixmapItem
+from PyQt5.QtCore import  QTimer
 from PyQt5.QtGui import QPixmap
 import random
 

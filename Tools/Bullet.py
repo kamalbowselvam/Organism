@@ -1,7 +1,6 @@
 
-import sys
-from PyQt5.QtWidgets import QApplication, QGraphicsView, QGraphicsScene, QGraphicsRectItem, QGraphicsItem, QGraphicsPixmapItem
-from PyQt5.QtCore import  QRectF, QPointF, qDebug, Qt, QTimer, QObject, QUrl
+from PyQt5.QtWidgets import QGraphicsPixmapItem
+from PyQt5.QtCore import QTimer, QUrl
 from Players.Enemy import Enemy
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent, QMediaPlaylist
