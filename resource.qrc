@@ -1,0 +1,7 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+    <file>Resources/sounds/Game_Background.mp3</file>
+    <file>Resources/sounds/Bullet.mp3</file>
+    <file>Resources/sounds/Bullet2.mp3</file>
+</qresource>
+</RCC>

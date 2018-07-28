@@ -1,13 +1,14 @@
+from PyQt5.QtCore import QTimer
+from PyQt5.QtCore import Qt, QObject, QUrl
+from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent
+from PyQt5.QtWidgets import QGraphicsItem
+
 from Grounds.PlayGround import PlayGround
 from Grounds.PlayGroundView import PlayGroundView
-from Players.Player import Player
 from Players.Enemy import Enemy
-from PyQt5.QtWidgets import  QGraphicsItem, QGraphicsTextItem
-from PyQt5.QtCore import Qt, QObject, QUrl
-from PyQt5.QtMultimedia import QMediaPlayer
-from PyQt5.QtCore import QTimer
-from Resources import *
+from Players.Player import Player
 
+import resoruces
 
 
 class Game(QObject):
@@ -20,12 +21,15 @@ class Game(QObject):
         self.player = Player()
         self.addToGround(self.player)
         self.backgroundMusic = QMediaPlayer()
-        self.backgroundMusic.setMedia(QUrl(":/sounds/Game_Background.mp3"))
+        self.backgroundMusic.setMedia(QMediaContent(QUrl("qrc:/Resources/sounds/Game_Background.mp3")))
+        self.backgroundMusic.setVolume(5)
+#        self.backgroundMusic.play()
 
 
         self.changeFocus(self.player)
         self.gameObjectPosition(self.player,750/2,550)
         self.setSize()
+
         self.spawnEnemies()
 
     def setSize(self):

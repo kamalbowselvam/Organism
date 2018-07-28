@@ -1,6 +1,8 @@
 from PyQt5.QtWidgets import QGraphicsRectItem
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QUrl
 from PyQt5.QtWidgets import QGraphicsRectItem
+from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent
+
 
 from Tools.Bullet import Bullet
 
@@ -10,6 +12,9 @@ class Player(QGraphicsRectItem):
     def __init__(self):
         super(Player,self).__init__()
         self.setRect(0,0,50,50)
+        self.bulletSound = QMediaPlayer()
+        self.bulletSound.setMedia(QMediaContent(QUrl("qrc:/Resources/sounds/Bullet2.mp3")))
+        self.bulletSound.setVolume(5)
 
     def keyPressEvent(self, QKeyEvent):
         if (QKeyEvent.key() ==  Qt.Key_Right):
@@ -32,3 +37,10 @@ class Player(QGraphicsRectItem):
             bullet = Bullet()
             bullet.setPos(self.x(),self.y())
             self.scene().addItem(bullet)
+
+
+            if(self.bulletSound.state() == 1):
+                self.bulletSound.stop()
+
+            elif(self.bulletSound.state() == 0):
+                self.bulletSound.play()
