@@ -6,6 +6,8 @@
     <file>Resources/images/Bullet.png</file>
     <file>Resources/images/Spaceship.png</file>
     <file>Resources/images/Enemy.png</file>
+    <file>Resources/images/Tower.png</file>
+    <file>Resources/images/Arrow.png</file>
 
 </qresource>
 </RCC>
