@@ -8,6 +8,7 @@ from Grounds.PlayGroundView import PlayGroundView
 from Players.Enemy import Enemy
 from Players.Player import Player
 from Players.Tower import Tower
+from Players.Alien import Alien
 
 import resoruces
 
@@ -17,14 +18,17 @@ class Game(QObject):
     def __init__(self):
         super(Game,self).__init__()
         self.scene = PlayGround()
-#        self.scene.setBackgroundBrush(QBrush(QImage(":/Resources/images/BackGround.png")))
+        self.scene.setBackgroundBrush(QBrush(QImage(":/Resources/images/BackGround.png")))
         self.view = PlayGroundView()
         self.view.setScene(self.scene)
         self.player = Player()
         self.addToGround(self.player)
         self.tower = Tower()
         self.addToGround(self.tower)
-        self.gameObjectPosition(self.tower,200,200)
+        self.gameObjectPosition(self.tower,200,450)
+
+#        self.alien = Alien()
+#        self.addToGround(self.alien)
 
 
         self.backgroundMusic = QMediaPlayer()

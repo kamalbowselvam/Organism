@@ -30,6 +30,18 @@ class Arrow(QGraphicsPixmapItem):
 
     def move(self):
 
+        collidingItems = self.collidingItems()
+        for item in collidingItems:
+            if isinstance(item, Enemy):
+                self.scene().increaseScore()
+                self.scene().removeItem(item)
+                self.scene().removeItem(self)
+                item.timer = None  # Setting the enemy QTimer to None (To clear the Reference)
+                del item
+                self.timer = None  # Setting the Bullet Qtimer to None (To clear of the Reference)
+                del self
+                return
+
         theta = self.rotation()
         dy = Arrow.STEP_SIZE * np.sin(np.radians(theta))
         dx = Arrow.STEP_SIZE * np.cos(np.radians(theta))
